@@ -1,0 +1,29 @@
+.Wrapper {
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	z-index: 1;
+	display: flex;
+	overflow-x: hidden;
+	.MainWrapper {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 2.3rem;
+		background: #f8f8f8;
+
+		padding-bottom: 0;
+
+		.Main {
+			height: calc(100% - 7rem);
+			overflow-y: scroll;
+
+			&.FullHeight {
+				height: 100%;
+			}
+		}
+	}
+}

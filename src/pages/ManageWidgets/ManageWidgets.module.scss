@@ -1,0 +1,194 @@
+.ManageWidgets {
+	width: 100%;
+
+	padding-bottom: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+
+	.Top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.Profile {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+
+			img {
+				width: 4.849rem;
+				height: 4.849rem;
+				border-radius: 50%;
+			}
+			.Details {
+				display: flex;
+				flex-direction: column;
+
+				h3 {
+					color: var(--Dashbaord, #2c2c2c);
+					font-family: Poppins;
+					font-size: 1.46388rem;
+					font-style: normal;
+					font-weight: 600;
+					line-height: 140%; /* 2.04938rem */
+				}
+				p {
+					color: #999;
+					font-family: Poppins;
+					font-size: 1.09788rem;
+					font-style: normal;
+					font-weight: 400;
+					line-height: 140%; /* 1.53706rem */
+				}
+			}
+		}
+
+		.Right {
+			display: flex;
+			align-items: center;
+			gap: 2rem;
+
+			.EditLayout {
+				display: flex;
+				width: 9.6875rem;
+				height: 2.75rem;
+				padding: 0.625rem;
+				justify-content: center;
+				align-items: center;
+				gap: 0.625rem;
+				flex-shrink: 0;
+				border-radius: 6.25rem;
+				border: 1px solid var(--Ellipse-30, #e6d366);
+				background: #fff;
+				cursor: pointer;
+
+				svg {
+					width: 1.3125rem;
+					height: 1.3125rem;
+					flex-shrink: 0;
+				}
+
+				p {
+					color: var(--Ellipse-30, #e6d366);
+					font-family: Poppins;
+					font-size: 0.875rem;
+					font-style: normal;
+					font-weight: 400;
+					line-height: normal;
+				}
+			}
+
+			.Back {
+				display: flex;
+				width: 10.1875rem;
+				height: 3rem;
+				padding: 0.75rem 1.625rem;
+				justify-content: center;
+				align-items: center;
+				gap: 0.625rem;
+				flex-shrink: 0;
+				border-radius: 6.25rem;
+				border: 1px solid #ece9f1;
+				cursor: pointer;
+
+				svg {
+					width: 1.5rem;
+					height: 1.5rem;
+					flex-shrink: 0;
+				}
+				p {
+					color: #2c2c2c;
+					font-family: Poppins;
+					font-size: 0.875rem;
+					font-style: normal;
+					font-weight: 500;
+					line-height: 1.25rem; /* 142.857% */
+				}
+			}
+
+			button {
+				cursor: pointer;
+				background: transparent;
+				cursor: pointer;
+				width: max-content;
+				border: none;
+
+				svg {
+					width: 2.8125rem;
+					height: 2.8125rem;
+				}
+			}
+		}
+	}
+
+	.WCards {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+	}
+
+	.RequestCards {
+		border-radius: 1.25rem;
+		background: #fff;
+		padding: 1.3rem 2rem;
+
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+
+		.Profile {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+
+			img {
+				width: 3.625rem;
+				height: 3.625rem;
+				border-radius: 50%;
+			}
+
+			.Details {
+				display: flex;
+				flex-direction: column;
+				gap: 0.2rem;
+			}
+		}
+		.WidgetData {
+			display: flex;
+			flex-direction: column;
+			gap: 0.22rem;
+
+			h4 {
+				color: var(--Find-a-Perfect-Job-Match, #2c2c2c);
+				font-family: Poppins;
+				font-size: 1.1875rem;
+				font-style: normal;
+				font-weight: 500;
+				line-height: 150%; /* 1.78125rem */
+				letter-spacing: 0.02375rem;
+
+				span {
+					color: var(--Rectangle-39863, #999);
+					font-family: Poppins;
+					font-size: 0.75rem;
+					font-style: normal;
+					font-weight: 400;
+					line-height: 170%; /* 1.275rem */
+				}
+			}
+			p {
+				color: var(--ce #646464);
+				font-family: Poppins;
+				font-size: 1rem;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 170%; /* 1.7rem */
+
+				span {
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}

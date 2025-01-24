@@ -1,0 +1,101 @@
+.Dashboard {
+	width: 100%;
+
+	.Row1 {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1rem;
+
+		.Col {
+			border-radius: 0.9375rem;
+			background: var(--c2);
+
+			display: flex;
+			justify-content: space-between;
+			padding: 2rem;
+
+			.Left {
+				display: flex;
+				flex-direction: column;
+				gap: 0.6rem;
+
+				p {
+					color: var(--c6);
+					font-family: var(--f3);
+					font-size: 0.75rem;
+					font-style: normal;
+					font-weight: 500;
+					line-height: 100%; /* 0.75rem */
+					text-transform: uppercase;
+				}
+				h2 {
+					color: var(--c11);
+					font-family: var(--f3);
+					font-size: 1.5rem;
+					font-style: normal;
+					font-weight: 600;
+					line-height: 2rem; /* 133.333% */
+				}
+
+				h3 {
+					color: var(--c12);
+					/* Body/Regular/500 */
+					font-family: var(--f4);
+					font-size: 0.875rem;
+					font-style: normal;
+					font-weight: 500;
+					line-height: 1.25rem; /* 142.857% */
+					display: flex;
+					align-items: center;
+					gap: 0.1rem;
+
+					span {
+						width: 1.5rem;
+						height: 1.5rem;
+
+						svg {
+							height: 100%;
+							width: 100%;
+						}
+					}
+
+					&.Down {
+						color: var(--c13);
+						span {
+							transform: rotate(180deg);
+						}
+					}
+				}
+			}
+
+			.Right {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
+				gap: 1rem;
+				.Icon {
+					display: inline-flex;
+					padding: 1.25rem;
+					align-items: flex-start;
+					gap: 0.625rem;
+					border-radius: 6.25rem;
+					background: var(--c14);
+
+					img {
+						width: 1.5rem;
+						height: 1.5rem;
+					}
+				}
+
+				span {
+					width: 1.19225rem;
+					height: 1.19225rem;
+
+					color: var(--c5);
+					cursor: pointer;
+					margin-right: 0.4rem;
+				}
+			}
+		}
+	}
+}
