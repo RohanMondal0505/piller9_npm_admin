@@ -1,17 +1,8 @@
-import ls from "localstorage-slim";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Logo from "../../assets/images/Logo.png";
-import LogoutWhite from "../../assets/images/LogoutWhite.webp";
-import LogoutYellow from "../../assets/images/LogoutYellow.webp";
-import MenuWhite from "../../assets/images/MenuWhite.webp";
-import MenuYellow from "../../assets/images/MenuYellow.webp";
-import RequestWidgetWhite from "../../assets/images/WidgetWhite.webp";
-import RequestWidgetYellow from "../../assets/images/WidgetYellow.webp";
-import LineAsset from "../../assets/svg/LineAsset.svg?react";
 import styles from "./Sidebar.module.scss";
 
-const Header = () => {
+const Header = ({ logoutUrl, logoutFunction }) => {
 	const { pathname } = useLocation();
 	const navigate = useNavigate();
 
@@ -19,40 +10,57 @@ const Header = () => {
 		{
 			name: "Dashboard",
 			Url: "/admin/dashboard",
-			icon: MenuWhite,
-			activeIcon: MenuYellow,
-			onClick: () => console.log("clicked"),
+			icon: "https://firebasestorage.googleapis.com/v0/b/file-upload-demo-213de.appspot.com/o/Pilar9%2FMenuWhite.webp?alt=media&token=0d415c29-9d8f-4e3d-a299-8b281a69865d",
+			activeIcon:
+				"https://firebasestorage.googleapis.com/v0/b/file-upload-demo-213de.appspot.com/o/Pilar9%2FMenuYellow.webp?alt=media&token=2ed68c35-97d7-493d-add9-22e705fd64ba",
 		},
 		{
 			name: "Users Dashboard",
 			Url: "/admin/users-dashboard",
-			icon: MenuWhite,
-			activeIcon: MenuYellow,
+			icon: "https://firebasestorage.googleapis.com/v0/b/file-upload-demo-213de.appspot.com/o/Pilar9%2FMenuWhite.webp?alt=media&token=0d415c29-9d8f-4e3d-a299-8b281a69865d",
+			activeIcon:
+				"https://firebasestorage.googleapis.com/v0/b/file-upload-demo-213de.appspot.com/o/Pilar9%2FMenuYellow.webp?alt=media&token=2ed68c35-97d7-493d-add9-22e705fd64ba",
 		},
 		{
 			name: "Widget Requests",
 			Url: "/admin/widget-requests",
-			icon: RequestWidgetWhite,
-			activeIcon: RequestWidgetYellow,
+			icon: "https://firebasestorage.googleapis.com/v0/b/file-upload-demo-213de.appspot.com/o/Pilar9%2FWidgetWhite.webp?alt=media&token=ef331593-caeb-4125-9422-465819b27a49",
+			activeIcon:
+				"https://firebasestorage.googleapis.com/v0/b/file-upload-demo-213de.appspot.com/o/Pilar9%2FWidgetYellow.webp?alt=media&token=9745bd71-0535-49cd-afb1-627caad6aace",
 		},
 		{
 			name: "Logout",
-			Url: "/",
-			icon: LogoutWhite,
-			activeIcon: LogoutYellow,
+			Url: logoutUrl,
+			icon: "https://firebasestorage.googleapis.com/v0/b/file-upload-demo-213de.appspot.com/o/Pilar9%2FLogoutWhite.webp?alt=media&token=3ae7fa36-bfdd-4af0-becc-fe0959e019cb",
+			activeIcon:
+				"https://firebasestorage.googleapis.com/v0/b/file-upload-demo-213de.appspot.com/o/Pilar9%2FLogoutYellow.webp?alt=media&token=0a7cf45f-d633-49e0-89cd-9b061d099865",
 			onClick: () => {
-				ls.clear();
+				logoutFunction();
 			},
 		},
 	];
 	return (
 		<div className={styles.Sidebar}>
 			<div className={styles.Logo}>
-				<img src={Logo} alt="Logo" title="Logo" height={"100%"} width={"100%"} loading="eager" />
+				<img
+					src={
+						"https://firebasestorage.googleapis.com/v0/b/file-upload-demo-213de.appspot.com/o/Pilar9%2FLogo.png?alt=media&token=df265a10-e2bb-4352-b9d8-a5dbf3ce5aa7"
+					}
+					alt="Logo"
+					title="Logo"
+					height={"100%"}
+					width={"100%"}
+					loading="eager"
+				/>
 			</div>
 			<div className={styles.LineAsset}>
 				<span>
-					<LineAsset />
+					<img
+						src={
+							"https://firebasestorage.googleapis.com/v0/b/file-upload-demo-213de.appspot.com/o/Pilar9%2FLineAsset.svg?alt=media&token=f4055cdc-8f54-40d8-9a56-090e28897982"
+						}
+						alt=""
+					/>
 				</span>
 			</div>
 
@@ -63,8 +71,7 @@ const Header = () => {
 						if (item?.onClick) item?.onClick();
 					}}
 					className={pathname === `${item?.Url}` ? styles.active : ""}
-					key={index}
-				>
+					key={index}>
 					<span>{pathname === `${item?.Url}` ? <img src={item?.activeIcon} alt="" /> : <img src={item?.icon} alt="" />}</span>
 					{item?.name}
 				</a>

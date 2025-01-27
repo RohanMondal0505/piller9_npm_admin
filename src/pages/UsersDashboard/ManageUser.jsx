@@ -4,8 +4,8 @@ import "react-grid-layout/css/styles.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import ArrowBackYellow from "../../assets/svg/ArrowBackYellow.svg?react";
-import Layout from "../../assets/svg/Layout.svg?react";
+import ArrowBackYellow from "../../assets/svg/ArrowBackYellow.webp";
+import Layout from "../../assets/svg/Layout.webp";
 import axios from "../../components/Hooks/axios";
 import { updateOpenedDashboard } from "../../redux/slice/dashboardSlice";
 import EditWidgetPopup from "./EditWidgetPopup";
@@ -118,7 +118,7 @@ const ManageUser = () => {
 			<div className={styles.ManageUser}>
 				<div className={styles.Top}>
 					<div className={styles.Left}>
-						<h2>Users Widget Requests </h2>
+						<h2>Manage User layout </h2>
 						<p>Hello , 👋{user?.name} Welcome to Dashboard</p>
 					</div>
 					<div className={styles.Right}>
@@ -134,11 +134,11 @@ const ManageUser = () => {
 							</>
 						)}
 						<div className={styles.EditLayout} onClick={() => setOpenEditPopup(true)}>
-							<Layout />
+							<img src={Layout} alt="" />
 							<p>Edit layout</p>
 						</div>
 						<div className={styles.Back} onClick={() => navigate("/admin/user-all-dashboards")}>
-							<ArrowBackYellow />
+							<img src={ArrowBackYellow} alt="" />
 							<p>Back</p>
 						</div>
 					</div>

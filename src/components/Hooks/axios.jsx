@@ -4,7 +4,7 @@ import ls from "localstorage-slim";
 let token = ls.get("Pilar9_Admin_Token");
 
 const Instance = axios.create({
-	baseURL: `${import.meta.env.VITE_API_BASE_URL}/api`,
+	baseURL: `${ls.get("API_BASE_URL")}/api`,
 	headers: {
 		Authorization: token,
 	},

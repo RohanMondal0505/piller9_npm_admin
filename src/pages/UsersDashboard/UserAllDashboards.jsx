@@ -3,10 +3,9 @@ import { FiEdit } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { DashboardDemo } from "../../assets";
-import ArrowBackYellow from "../../assets/svg/ArrowBackYellow.svg?react";
-import More from "../../assets/svg/More.svg?react";
-import Send from "../../assets/svg/Send.svg?react";
+import ArrowBackYellow from "../../assets/svg/ArrowBackYellow.webp";
+import More from "../../assets/svg/More.webp";
+import Send from "../../assets/svg/Send.webp";
 import axios from "../../components/Hooks/axios";
 import Loading from "../../components/Loading/Loading";
 import { setOpenedDashboard, setUserMainDashboard } from "../../redux/slice/dashboardSlice";
@@ -65,7 +64,7 @@ const UserAllDashboards = () => {
 					</div>
 					<div className={styles.Right}>
 						<div className={styles.Back} onClick={() => navigate("/admin/users-dashboard")}>
-							<ArrowBackYellow />
+							<img src={ArrowBackYellow} alt="" />
 							<p>Back</p>
 						</div>
 					</div>
@@ -94,27 +93,35 @@ const UserAllDashboards = () => {
 									</div>
 									<div className={styles.Buttons}>
 										<span className={styles.Menu} onClick={() => setOpenMenu(!openMenu)}>
-											<More />
+											<img src={More} alt="" />
 											<div className={`${styles.SubMenu} ${openMenu ? styles.Open : ""}`} onClick={(e) => e.stopPropagation()}>
 												<p
 													onClick={() =>
 														navigate("/admin/manage-user-dashboard", {
 															state: { activeDashboard: dashboardData },
 														})
-													}
-												>
+													}>
 													<FiEdit />
 													Edit User Dashboard
 												</p>
 											</div>
 										</span>
 										<span>
-											<Send />
+											<img src={Send} alt="" />
 										</span>
 									</div>
 								</div>
 								<div className={styles.Image}>
-									<img src={DashboardDemo} alt=" " height={"100%"} width={"100%"} title=" " loading="lazy" />
+									<img
+										src={
+											"https://firebasestorage.googleapis.com/v0/b/file-upload-demo-213de.appspot.com/o/Pilar9%2FDashboardDemo.png?alt=media&token=842d2a46-7d24-4ddb-9b9b-0623a0814fd9"
+										}
+										alt=" "
+										height={"100%"}
+										width={"100%"}
+										title=" "
+										loading="lazy"
+									/>
 								</div>
 							</div>
 						)}
@@ -144,29 +151,36 @@ const UserAllDashboards = () => {
 										</div>
 										<div className={styles.Buttons}>
 											<span className={styles.Menu} onClick={() => handleOpenMenu(i)}>
-												<More />
+												<img src={More} alt="" />
 												<div
 													className={`${styles.SubMenu} ${i === openMenuIndex ? styles.Open : ""}`}
-													onClick={(e) => e.stopPropagation()}
-												>
+													onClick={(e) => e.stopPropagation()}>
 													<p
 														onClick={() => {
 															navigate("/admin/manage-user");
 															dispatch(setOpenedDashboard(item));
-														}}
-													>
+														}}>
 														<FiEdit />
 														Edit User Dashboard
 													</p>
 												</div>
 											</span>
 											<span>
-												<Send />
+												<img src={Send} alt="" />
 											</span>
 										</div>
 									</div>
 									<div className={styles.Image}>
-										<img src={DashboardDemo} alt=" " height={"100%"} width={"100%"} title=" " loading="lazy" />
+										<img
+											src={
+												"https://firebasestorage.googleapis.com/v0/b/file-upload-demo-213de.appspot.com/o/Pilar9%2FDashboardDemo.png?alt=media&token=842d2a46-7d24-4ddb-9b9b-0623a0814fd9"
+											}
+											alt=" "
+											height={"100%"}
+											width={"100%"}
+											title=" "
+											loading="lazy"
+										/>
 									</div>
 								</div>
 							))}

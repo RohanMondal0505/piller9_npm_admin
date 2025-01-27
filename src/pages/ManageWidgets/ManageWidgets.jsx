@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import ArrowBackYellow from "../../assets/svg/ArrowBackYellow.svg?react";
+import ArrowBackYellow from "../../assets/svg/ArrowBackYellow.webp";
 import { timeAgo } from "../../components/utils/HelperFunctions";
 import ManageWidgetPopup from "./ManageWidgetPopup";
 import styles from "./ManageWidgets.module.scss";
@@ -32,7 +32,7 @@ const ManageWidgets = () => {
 					</div>
 					<div className={styles.Right}>
 						<div className={styles.Back} onClick={() => navigate("/admin/widget-requests")}>
-							<ArrowBackYellow />
+							<img src={ArrowBackYellow} alt="" />
 							<p>Back</p>
 						</div>
 					</div>
