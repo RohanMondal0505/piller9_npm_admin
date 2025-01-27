@@ -29,7 +29,7 @@
 			align-items: center;
 			justify-content: space-between;
 
-			.Left{
+			.Left {
 				display: flex;
 				flex-direction: column;
 				gap: 0.7rem;
@@ -104,6 +104,10 @@
 					width: 1.5rem;
 					height: 1.5rem;
 					cursor: pointer;
+					img {
+						width: 1.5125rem;
+						height: 1.50625rem;
+					}
 				}
 			}
 		}
@@ -134,7 +138,7 @@
 				align-items: center;
 				justify-content: center;
 				border-radius: 1rem;
-                flex-shrink: 0;
+				flex-shrink: 0;
 			}
 		}
 	}

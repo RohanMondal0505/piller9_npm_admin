@@ -1,11 +1,11 @@
+import ls from "localstorage-slim";
 import React, { lazy, Suspense, useEffect } from "react";
+import { Provider, useSelector } from "react-redux";
 import { Navigate, Outlet, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./assets/scss/Styles.module.scss";
 import "./assets/scss/index.scss";
-import ls from "localstorage-slim";
-import { Provider, useSelector } from "react-redux";
 import ScrollToTop from "./components/Hooks/ScrollToTop";
 import LoadingPopup from "./components/Loading/LoadingPopup";
 import LoadingIndicator from "./components/LoadingIndicator/LoadingIndicator";
@@ -25,7 +25,7 @@ const WidgetRequests = lazy(() => import("./pages/ManageWidgets/WidgetRequests")
 const ManageUser = lazy(() => import("./pages/UsersDashboard/ManageUser"));
 const UserAllDashboards = lazy(() => import("./pages/UsersDashboard/UserAllDashboards"));
 
-const Admin = ({ token, adminData, X_API_KEY, API_BASE_URL }) => {
+const Admin = ({ token, adminData, X_API_KEY, API_BASE_URL, logoutUrl, logoutFunction }) => {
 	useEffect(() => {
 		if (!token) {
 			toast.warn("Token is Required...");
@@ -57,7 +57,7 @@ const Admin = ({ token, adminData, X_API_KEY, API_BASE_URL }) => {
 
 					<Routes>
 						<Route path="/" element={<Navigate to="/admin/dashboard" />} />
-						<Route path="/admin" element={<Wrapper />}>
+						<Route path="/admin" element={<Wrapper {...{ logoutUrl, logoutFunction }} />}>
 							<Route path="dashboard" element={<Dashboard />} />
 							<Route path="users-dashboard" element={<UsersDashboard />} />
 							<Route path="user-all-dashboards" element={<UserAllDashboards />} />
@@ -75,7 +75,7 @@ const Admin = ({ token, adminData, X_API_KEY, API_BASE_URL }) => {
 
 export default Admin;
 
-const Wrapper = () => {
+const Wrapper = ({ logoutUrl, logoutFunction }) => {
 	const navigate = useNavigate();
 	useEffect(() => {
 		if (!ls.get("Pilar9_Admin_Token")) navigate("/");
@@ -87,7 +87,7 @@ const Wrapper = () => {
 	return (
 		<div className={styles.Wrapper}>
 			<Suspense fallback={<LoadingIndicator />}>
-				<Sidebar />
+				<Sidebar {...{ logoutUrl, logoutFunction }} />
 				{openLoadingPopup && <LoadingPopup />}
 				{openWidgetInFullScreen && <FullScreenPopup />}
 				<div className={styles.MainWrapper}>
@@ -103,8 +103,7 @@ const Wrapper = () => {
 							pathname === "/admin/user-all-dashboards"
 								? styles.FullHeight
 								: ""
-						}`}
-					>
+						}`}>
 						<Outlet />
 					</div>
 				</div>

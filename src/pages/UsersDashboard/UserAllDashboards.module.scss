@@ -68,7 +68,8 @@
 				border: 1px solid #ece9f1;
 				cursor: pointer;
 
-				svg {
+				svg,
+				img {
 					width: 1.5rem;
 					height: 1.5rem;
 					flex-shrink: 0;
@@ -140,7 +141,7 @@
 					border: none;
 					cursor: pointer;
 					transition: all ease-in-out 0.3s;
-					&:hover{
+					&:hover {
 						transform: scale(0.95);
 						opacity: 0.95;
 					}
@@ -222,7 +223,11 @@
 					align-items: center;
 					gap: 1rem;
 
-					svg {
+					svg,
+					img {
+						width: 1.85rem;
+						height: 1.85rem;
+						flex-shrink: 0;
 						cursor: pointer;
 					}
 
@@ -262,6 +267,13 @@
 								display: flex;
 								align-items: center;
 								gap: 0.4rem;
+
+								svg {
+									width: 1.5rem;
+									height: 1.5rem;
+									flex-shrink: 0;
+									cursor: pointer;
+								}
 							}
 						}
 					}

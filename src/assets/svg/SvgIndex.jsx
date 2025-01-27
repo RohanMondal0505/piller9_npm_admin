@@ -1,6 +1,5 @@
-import SoldProduct from "./SoldProduct.svg";
+import SoldProduct from "./SoldProduct.webp";
 
-import CrossButton from "./CrossButton.svg";
-import PlusButton from "./PlusButton.svg";
-import Logo from "./Logo.svg";
-export { CrossButton, PlusButton, SoldProduct,Logo };
+import CrossButton from "./CrossButton.webp";
+import PlusButton from "./PlusButton.webp";
+export { CrossButton, PlusButton, SoldProduct };

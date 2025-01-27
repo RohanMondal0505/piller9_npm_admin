@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import { BsThreeDots, BsThreeDotsVertical } from "react-icons/bs";
 import { FaArrowLeft, FaArrowRight, FaSort } from "react-icons/fa";
@@ -47,7 +48,9 @@ const DataTable = ({ id = "RMAWANIR", pagination }) => {
 
 	// Filter listings based on search query
 	useEffect(() => {
-		const filtered = listings?.filter((row) => selectedKeys.some((key) => row[key]?.toString().toLowerCase().includes(search.toLowerCase())));
+		const filtered = listings?.filter((row) =>
+			selectedKeys.some((key) => row[key]?.toString().toLowerCase().includes(search.toLowerCase()))
+		);
 		setFilteredData(filtered);
 		setCurrentPage(1);
 	}, [search, listings, selectedKeys]);
@@ -61,7 +64,9 @@ const DataTable = ({ id = "RMAWANIR", pagination }) => {
 
 	// Toggle a field in selected keys
 	const toggleField = (field) => {
-		setSelectedKeys((prevSelected) => (prevSelected.includes(field) ? prevSelected.filter((key) => key !== field) : [...prevSelected, field]));
+		setSelectedKeys((prevSelected) =>
+			prevSelected.includes(field) ? prevSelected.filter((key) => key !== field) : [...prevSelected, field]
+		);
 	};
 
 	const availableFields = Object.keys(listings[0] || {});
@@ -145,8 +150,8 @@ const DataTable = ({ id = "RMAWANIR", pagination }) => {
 					<div className={styles.pagination}>
 						<div className={styles.Top}>
 							<span>
-								Showing rows {(currentPage - 1) * rowsPerPage + 1} to {Math.min(currentPage * rowsPerPage, filteredData.length)} of{" "}
-								{filteredData.length}
+								Showing rows {(currentPage - 1) * rowsPerPage + 1} to {Math.min(currentPage * rowsPerPage, filteredData.length)}{" "}
+								of {filteredData.length}
 							</span>
 							<div className={styles.SwitchContainer}>
 								<div className={styles.SwitchLabel}>Brokerage Listings</div>
@@ -161,24 +166,21 @@ const DataTable = ({ id = "RMAWANIR", pagination }) => {
 							<div
 								className={styles.Arrow}
 								onClick={() => setCurrentPage((prevPage) => Math.max(prevPage - 1, 1))}
-								style={{ marginRight: "1rem" }}
-							>
+								style={{ marginRight: "1rem" }}>
 								<FaArrowLeft color="#e6d366" size={"1.2rem"} />
 							</div>
 							{[...Array(Math.ceil(filteredData.length / rowsPerPage)).keys()].map((page) => (
 								<button
 									key={page}
 									className={currentPage === page + 1 ? styles.activePage : ""}
-									onClick={() => setCurrentPage(page + 1)}
-								>
+									onClick={() => setCurrentPage(page + 1)}>
 									{page + 1}
 								</button>
 							))}
 							<div
 								className={styles.Arrow}
 								onClick={() => setCurrentPage((prevPage) => Math.min(prevPage + 1, Math.ceil(filteredData.length / rowsPerPage)))}
-								style={{ marginLeft: "1rem" }}
-							>
+								style={{ marginLeft: "1rem" }}>
 								<FaArrowRight color="#e6d366" size={"1.2rem"} />
 							</div>
 						</div>
