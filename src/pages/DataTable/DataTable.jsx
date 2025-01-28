@@ -10,6 +10,7 @@ import { RxCross2 } from "react-icons/rx";
 import { toast } from "react-toastify";
 import Loading from "../../components/Loading/Loading";
 import DownloadPopup from "./DownloadPopup";
+import { formatTimestamp } from "../../components/utils/HelperFunctions";
 const DataTable = ({ id = "RMAWANIR", pagination }) => {
 	const [listings, setListings] = useState([]);
 	const [filteredData, setFilteredData] = useState([]);
@@ -109,10 +110,7 @@ const DataTable = ({ id = "RMAWANIR", pagination }) => {
 						)}
 					</div>
 				</div>
-				{/* <div className={styles.search}>
-					<input type="text" placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} />
-					<FaSearch className={styles.searchIcon} />
-				</div> */}
+
 
 				<div className={`${styles.TableBox} `}>
 					{loading ? (
@@ -137,7 +135,7 @@ const DataTable = ({ id = "RMAWANIR", pagination }) => {
 										</td>
 										{selectedKeys.map((key) => (
 											<td key={key} className={`Key_${key}`}>
-												<span className={row[key] === "A" ? "Active" : ""}>{row[key] ?? "N/A"}</span>
+												<span className={row[key] === "A" ? "Active" : ""}>{key === "ModifiedDate" ? formatTimestamp(row[key]) : row[key] ?? "N/A"}</span>
 											</td>
 										))}
 									</tr>
