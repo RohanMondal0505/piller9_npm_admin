@@ -4,6 +4,7 @@ import { BsThreeDots, BsThreeDotsVertical } from "react-icons/bs";
 import { FaArrowLeft, FaArrowRight, FaSort } from "react-icons/fa";
 import styles from "./DataTable.module.scss";
 import "./DataTable.scss";
+import ls from "localstorage-slim";
 
 import axios from "axios";
 import { RxCross2 } from "react-icons/rx";
@@ -25,13 +26,15 @@ const DataTable = ({ id = "RMAWANIR", pagination }) => {
 	const [selectedKeys, setSelectedKeys] = useState(defaultFields);
 	const [isSwitchedOn, setIsSwitchedOn] = useState(false);
 
+	const apiKey = ls.get("X_API_KEY");
+
 	useEffect(() => {
 		const fetchListings = () => {
 			setLoading(true);
 			axios
 				.get(`https://paz9f27r6h.execute-api.ca-central-1.amazonaws.com/staging/agent/${id}/myListings`, {
 					headers: {
-						"X-API-KEY": "tOKMV0hOEK3B8vrsjVk9B2TWpRgOKTyT2f7C6qT0",
+						"X-API-KEY": apiKey,
 					},
 				})
 				.then(({ data }) => {

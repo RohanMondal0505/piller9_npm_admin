@@ -17,7 +17,7 @@ const adminData = {
 	__v: 0,
 };
 
-const X_API_KEY = "tOKMV0hOEK3B8vrsjVk9B2TWpRgOKTyT2f7C6qT0";
+const X_API_KEY = "Your Api Key";
 const API_BASE_URL = "https://pilar9-backend.vercel.app";
 ```
 
